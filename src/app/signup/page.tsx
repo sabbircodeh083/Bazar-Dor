@@ -16,7 +16,7 @@ function SignUpPage() {
     if (data.password !== data.confirmPassword) {
       toast.error("পাসওয়ার্ড দুটি একই নয়। আবার চেষ্টা করো।");
     } else {
-      const { data: resData, error } = await authClient.signUp.email({
+      const { error } = await authClient.signUp.email({
         name: data.name as string,
         email: data.email as string,
         password: data.password as string,

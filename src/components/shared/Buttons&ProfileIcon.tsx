@@ -96,14 +96,14 @@ function ButtonsAndProfileIcon() {
               </div>
 
               <div className="mt-2 space-y-1">
-                <button
-                  type="button"
+                <Link
+                  href="/profile"
                   onClick={() => setModalStatus(false)}
                   className="flex w-full items-center gap-2 rounded-lg px-2 py-2.5 text-left text-sm text-gray-700 transition hover:bg-gray-100 cursor-pointer"
                 >
                   <i className="fa-solid fa-user w-4 text-blue-500" />
                   আমার প্রোফাইল
-                </button>
+                </Link>
 
                 <button
                   type="button"
