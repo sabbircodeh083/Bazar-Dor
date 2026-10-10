@@ -14,7 +14,7 @@ async function CategoryProducts({
   );
   const data: IProduct[] = await res.json();
 
-  if (!!res.ok || !data[0].id) {
+  if (!res.ok || !data[0].id) {
     notFound();
   }
 

@@ -12,9 +12,11 @@ function SocialComponents() {
     });
 
     if (error) {
-      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।");
+      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।", {
+        position: "top-center",
+      });
     } else {
-      toast.success("সাইন ইন সফল হয়েছে !!!");
+      toast.success("সাইন ইন সফল হয়েছে !!!", { position: "top-center" });
     }
   };
   const hendleSignInWithGitHub = async () => {
@@ -23,9 +25,11 @@ function SocialComponents() {
       callbackURL: "/",
     });
     if (error) {
-      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।");
+      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।", {
+        position: "top-center",
+      });
     } else {
-      toast.success("সাইন ইন সফল হয়েছে !!!");
+      toast.success("সাইন ইন সফল হয়েছে !!!", { position: "top-center" });
     }
   };
 

@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import { redirect } from "next/navigation";
+import ProfileButtonSkeleton from "@/components/Skeleton/ProfileButtonSkeleton";
 
 function ButtonsAndProfileIcon() {
   const { data: session, isPending } = authClient.useSession();
@@ -15,16 +16,16 @@ function ButtonsAndProfileIcon() {
     const { error } = await authClient.signOut();
 
     if (error) {
-      toast.error("সাইন আউট সফল হয়নি! আবার চেষ্টা করুন।");
+      toast.error("সাইন আউট সফল হয়নি! আবার চেষ্টা করুন।", { position: "top-center" });
     } else {
       setModalStatus(false);
-      toast.success("সাইন আউট সফল হয়েছে !!!");
+      toast.success("সাইন আউট সফল হয়েছে !!!", { position: "top-center" });
       redirect("/signin");
     }
   };
 
   if (isPending) {
-    return <p className="text-sm text-gray-500">লোড হচ্ছে...</p>;
+    return <ProfileButtonSkeleton />;
   }
 
   return (

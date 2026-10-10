@@ -14,7 +14,9 @@ function SignUpPage() {
     const data = Object.fromEntries(formData.entries());
 
     if (data.password !== data.confirmPassword) {
-      toast.error("পাসওয়ার্ড দুটি একই নয়। আবার চেষ্টা করো।");
+      toast.error("পাসওয়ার্ড দুটি একই নয়। আবার চেষ্টা করো।", {
+        position: "top-center",
+      });
     } else {
       const { error } = await authClient.signUp.email({
         name: data.name as string,
@@ -22,10 +24,12 @@ function SignUpPage() {
         password: data.password as string,
       });
       if (error) {
-        toast.error("সাইন আপ সফল হয়নি! আবার চেষ্টা করুন।");
+        toast.error("সাইন আপ সফল হয়নি! আবার চেষ্টা করুন।", {
+          position: "top-center",
+        });
       } else {
-        toast.success("সাইন আপ সফল হয়েছে !!!");
-        redirect("/");
+        toast.success("সাইন আপ সফল হয়েছে !!!", { position: "top-center" });
+        redirect("/signin");
       }
     }
   };

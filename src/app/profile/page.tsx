@@ -12,9 +12,9 @@ function ProfilePage() {
     const { error } = await authClient.signOut();
 
     if (error) {
-      toast.error("সাইন আউট সফল হয়নি! আবার চেষ্টা করুন।");
+      toast.error("সাইন আউট সফল হয়নি! আবার চেষ্টা করুন।", { position: "top-center" });
     } else {
-      toast.success("সাইন আউট সফল হয়েছে !!!");
+      toast.success("সাইন আউট সফল হয়েছে !!!", { position: "top-center" });
       redirect("/signin");
     }
   };
@@ -27,9 +27,9 @@ function ProfilePage() {
       await authClient.updateUser({
         name: data.name as string,
       });
-      toast.success("আপডেট সফল হয়েছে !!!");
+      toast.success("আপডেট সফল হয়েছে !!!", { position: "top-center" });
     } catch {
-      toast.error("আপডেট সফল হয়নি! আবার চেষ্টা করুন।");
+      toast.error("আপডেট সফল হয়নি! আবার চেষ্টা করুন।", { position: "top-center" });
     }
   };
 
