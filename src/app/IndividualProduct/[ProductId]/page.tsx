@@ -1,6 +1,7 @@
 import React from "react";
 import { IProduct } from "@/types/types";
 import { unitNames } from "@/lib/units";
+import { notFound } from "next/navigation";
 
 async function ProductDescription({
   params,
@@ -12,9 +13,13 @@ async function ProductDescription({
     `https://api.api-store.workers.dev/api/bazardor/products/${ProductId}`,
   );
   const product: IProduct = await res.json();
+
+  if (!res.ok || !product.id) {
+    notFound();
+  }
   const maxPrice = Math.max(...product.markets.map((market) => market.max));
   const minPrice = Math.min(...product.markets.map((market) => market.min));
- 
+
   return (
     <section className="container mx-auto my-5 md:my-10">
       <div className="flex flex-col justify-center items-center gap-10 w-full">

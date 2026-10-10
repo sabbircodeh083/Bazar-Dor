@@ -1,6 +1,7 @@
 import React from "react";
 import { IProduct } from "@/types/types";
 import SortWithPrice from "@/components/CateGory/SortWithPrice";
+import notFound from "@/app/not-found";
 
 async function CategoryProducts({
   params,
@@ -12,6 +13,10 @@ async function CategoryProducts({
     `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryName}`,
   );
   const data: IProduct[] = await res.json();
+
+  if (!!res.ok || !data[0].id) {
+    notFound();
+  }
 
   return (
     <div>
