@@ -18,7 +18,20 @@ function ProfilePage() {
       redirect("/signin");
     }
   };
-  const handleUpdate = () => {};
+  const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      await authClient.updateUser({
+        name: data.name as string,
+      });
+      toast.success("আপডেট সফল হয়েছে !!!");
+    } catch {
+      toast.error("আপডেট সফল হয়নি! আবার চেষ্টা করুন।");
+    }
+  };
 
   if (isPending) {
     return <p className="text-sm text-gray-500">লোড হচ্ছে...</p>;
