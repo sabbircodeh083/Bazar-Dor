@@ -1,8 +1,10 @@
 function Footer() {
   return (
-    <div className="container mx-auto flex flex-row text-[#8d8d8d] justify-between my-8">
+    <div className="container mx-auto flex flex-col lg:flex-row gap-5 lg:gap-0 text-[#8d8d8d] justify-center items-center lg:justify-between my-8">
       <p>বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।</p>
-      <p>সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।</p>
+      <p className="text-center">
+        সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।
+      </p>
     </div>
   );
 }

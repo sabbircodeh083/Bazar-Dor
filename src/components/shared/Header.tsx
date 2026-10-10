@@ -12,13 +12,15 @@ function Header() {
       <section className="container mx-auto flex flex-col justify-center items-center gap-2 py-2">
         <div className=" w-full flex flex-row justify-between items-center py-2">
           <div className="flex flex-row justify-center items-center gap-2">
-            <Image
-              className="bg-green-600 px-2 py-2 rounded-lg"
-              src="/logo-icon.png"
-              alt="Logo"
-              width={45}
-              height={45}
-            />
+            <Link href="/">
+              <Image
+                className="bg-green-600 px-2 py-2 rounded-lg"
+                src="/logo-icon.png"
+                alt="Logo"
+                width={45}
+                height={45}
+              />
+            </Link>
             <div>
               <p className="text-black text-2xl font-bold">বাজার দর</p>
               <DateAndTime />
