@@ -1,11 +1,33 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+import SocialComponents from "@/components/Authentication/SocialComponents";
 
 function SignInPage() {
+  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+
+    const { data: resData, error } = await authClient.signIn.email({
+      email: data.email as string,
+      password: data.password as string,
+      callbackURL: "/",
+    });
+    if (error) {
+      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।");
+    } else {
+      toast.success("সাইন ইন সফল হয়েছে !!!");
+    }
+  };
   return (
     <section>
       <div>
-        <div className="min-h-screen bg-[#f0f5f0] px-4 py-8">
+        <div className="min-h-screen bg-[#f0f5f0] px-4 py-4 lg:py-8">
           <div className="mx-auto max-w-md">
             <div className="mb-6 text-center">
               <h1 className="text-2xl font-bold text-gray-900">সাইন ইন</h1>
@@ -15,7 +37,10 @@ function SignInPage() {
             </div>
 
             <div className="rounded-2xl border border-gray-200 bg-white/80 p-5 sm:p-6">
-              <form className="space-y-4">
+              <form
+                className=" spcae-y-2  md:space-y-4"
+                onSubmit={handleSignIn}
+              >
                 <div>
                   <label
                     htmlFor="email"
@@ -65,28 +90,12 @@ function SignInPage() {
                 <div className="h-px flex-1 bg-gray-200" />
               </div>
 
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 cursor-pointer hover:border-green-400"
-                >
-                  <i className="fa-brands fa-google text-base text-[#4285F4]" />
-                  Google দিয়ে চালিয়ে যান
-                </button>
-
-                <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 cursor-pointer hover:border-green-400"
-                >
-                  <i className="fa-brands fa-github text-base" />
-                  GitHub দিয়ে চালিয়ে যান
-                </button>
-              </div>
+              <SocialComponents />
 
               <p className="mt-5 text-center text-sm text-gray-600">
                 অ্যাকাউন্ট নেই?{" "}
                 <a
-                  href="/sign-up"
+                  href="/signup"
                   className="font-medium text-green-700 hover:text-green-800"
                 >
                   সাইন আপ করুন

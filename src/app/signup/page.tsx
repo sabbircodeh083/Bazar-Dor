@@ -5,13 +5,14 @@ import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 
 import { toast } from "react-toastify";
+import SocialComponents from "@/components/Authentication/SocialComponents";
 
 function SignUpPage() {
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+
     if (data.password !== data.confirmPassword) {
       toast.error("পাসওয়ার্ড দুটি একই নয়। আবার চেষ্টা করো।");
     } else {
@@ -133,28 +134,12 @@ function SignUpPage() {
                 <div className="h-px flex-1 bg-gray-200" />
               </div>
 
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 cursor-pointer hover:border-green-400"
-                >
-                  <i className="fa-brands fa-google text-base text-[#4285F4]" />
-                  Google দিয়ে চালিয়ে যান
-                </button>
-
-                <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 cursor-pointer hover:border-green-400"
-                >
-                  <i className="fa-brands fa-github text-base" />
-                  GitHub দিয়ে চালিয়ে যান
-                </button>
-              </div>
+              <SocialComponents />
 
               <p className="mt-5 text-center text-sm text-gray-600">
                 অ্যাকাউন্ট আছে?{" "}
                 <a
-                  href="/sign-in"
+                  href="/signin"
                   className="font-medium text-green-700 hover:text-green-800"
                 >
                   সাইন ইন করুন

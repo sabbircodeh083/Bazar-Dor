@@ -28,14 +28,14 @@ function Header() {
           </div>
           <div className="flex flex-row gap-2 justify-end items-center">
             <Link
-              href="#"
-              className="text-black font-bold  hover:text-red-500 "
+              href="/signin"
+              className="text-black font-bold  hover:text-green-800 "
             >
               সাইন ইন
             </Link>
             <Link
-              href="#"
-              className="text-white font-bold bg-green-700 px-2 py-1.5 rounded-lg hover:bg-red-700 "
+              href="/signup"
+              className="text-white font-bold bg-green-700 px-2 py-1.5 rounded-lg hover:bg-green-800 "
             >
               সাইন আপ
             </Link>
