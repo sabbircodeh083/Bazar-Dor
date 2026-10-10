@@ -10,7 +10,7 @@ async function CategoryProducts({
 }) {
   const { categoryName } = await params;
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryName}`,
+    `https://${process.env.ATL_API}/api/bazardor/products?category=${categoryName}`,
   );
   const data: IProduct[] = await res.json();
 

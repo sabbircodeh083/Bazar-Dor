@@ -3,7 +3,7 @@ import React from "react";
 import { ICategory } from "@/types/types";
 async function Navber() {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/categories",
+    `https://${process.env.ATL_API}/api/bazardor/categories`,
   );
   const categories: ICategory[] = await res.json();
 

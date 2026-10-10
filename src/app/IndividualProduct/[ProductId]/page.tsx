@@ -10,7 +10,7 @@ async function ProductDescription({
 }) {
   const { ProductId } = await params;
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products/${ProductId}`,
+    `https://${process.env.ATL_API}/api/bazardor/products/${ProductId}`,
   );
   const product: IProduct = await res.json();
 

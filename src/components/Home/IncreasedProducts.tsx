@@ -4,7 +4,7 @@ import React from "react";
 
 async function IncreasedProducts() {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/products",
+    `https://${process.env.ATL_API}/api/bazardor/products`,
   );
   const data: IProduct[] = await res.json();
   const increasedProducts = data.filter(

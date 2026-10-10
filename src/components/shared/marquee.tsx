@@ -6,7 +6,7 @@ import { unitNames } from "@/lib/units";
 
 export default async function MarqueeComponent() {
   const res = await fetch(
-    "https://api.api-store.workers.dev/api/bazardor/products",
+    `https://${process.env.ATL_API}/api/bazardor/products`,
   );
   const products: IProduct[] = await res.json();
 
