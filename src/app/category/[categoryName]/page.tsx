@@ -12,7 +12,6 @@ async function CategoryProducts({
     `https://api.api-store.workers.dev/api/bazardor/products?category=${categoryName}`,
   );
   const data: IProduct[] = await res.json();
-  console.log(data);
 
   return (
     <div>
