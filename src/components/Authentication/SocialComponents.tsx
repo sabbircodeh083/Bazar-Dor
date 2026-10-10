@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 function SocialComponents() {
   const hendleSignInWithGoogle = async () => {
-    const { data: resData, error } = await authClient.signIn.social({
+    const { data: googleResData, error } = await authClient.signIn.social({
       provider: "google",
       callbackURL: "/",
     });
@@ -17,7 +17,17 @@ function SocialComponents() {
       toast.success("সাইন ইন সফল হয়েছে !!!");
     }
   };
-  const hendleSignInWithGitHub = async () => {};
+  const hendleSignInWithGitHub = async () => {
+    const { data: githubResData, error } = await authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/",
+    });
+    if (error) {
+      toast.error("সাইন ইন সফল হয়নি! আবার চেষ্টা করুন।");
+    } else {
+      toast.success("সাইন ইন সফল হয়েছে !!!");
+    }
+  };
 
   return (
     <div>
