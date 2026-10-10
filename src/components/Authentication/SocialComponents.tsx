@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 function SocialComponents() {
   const hendleSignInWithGoogle = async () => {
-    const { data: googleResData, error } = await authClient.signIn.social({
+    const { error } = await authClient.signIn.social({
       provider: "google",
       callbackURL: "/",
     });
@@ -18,7 +18,7 @@ function SocialComponents() {
     }
   };
   const hendleSignInWithGitHub = async () => {
-    const { data: githubResData, error } = await authClient.signIn.social({
+    const { error } = await authClient.signIn.social({
       provider: "github",
       callbackURL: "/",
     });

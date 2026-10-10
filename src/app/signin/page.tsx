@@ -13,7 +13,7 @@ function SignInPage() {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    const { data: resData, error } = await authClient.signIn.email({
+    const { error } = await authClient.signIn.email({
       email: data.email as string,
       password: data.password as string,
       callbackURL: "/",
