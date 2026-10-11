@@ -36,7 +36,6 @@ async function ProductDescription({
               </h2>
 
               <p className="text-sm text-gray-500">
-                প্রতি কেজি · চাল
                 {`প্রতি ${unitNames[product.unit]} · ${product.categoryNameBn}`}
               </p>
 
