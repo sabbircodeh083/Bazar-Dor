@@ -22,7 +22,7 @@ function SortWithPrice({ products }: { products: IProduct[] }) {
         <span className="text-sm text-gray-500">সাজান</span>
 
         <select
-          className="select select-sm rounded-lg border border-gray-300 bg-transparent text-gray-700 focus:outline-none"
+          className="select select-sm rounded-lg border border-gray-300 bg-white text-gray-700 focus:outline-none"
           onChange={(e) => handleSort(e.target.value)}
         >
           <option value="default">ডিফল্ট</option>
