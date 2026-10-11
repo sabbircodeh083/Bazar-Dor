@@ -3,12 +3,18 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import Header from "@/components/shared/Header";
 import Footer from "@/components/shared/Footer";
+import type { Metadata } from "next";
 
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
   subsets: ["latin", "bengali"],
   weight: ["400", "500", "600", "700"],
 });
+
+export const metadata: Metadata = {
+  title: "বাজার দর",
+  description: "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের দৈনিক বাজার দর দেখুন।",
+};
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
