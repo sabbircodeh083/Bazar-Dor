@@ -1,7 +1,7 @@
 import React from "react";
 import { IProduct } from "@/types/types";
 import SortWithPrice from "@/components/CateGory/SortWithPrice";
-import notFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 
 async function CategoryProducts({
   params,
@@ -14,7 +14,7 @@ async function CategoryProducts({
   );
   const data: IProduct[] = await res.json();
 
-  if (!res.ok || !data[0].id) {
+  if (!Array.isArray(data) || data.length === 0 || !data[0]?.id) {
     notFound();
   }
 
