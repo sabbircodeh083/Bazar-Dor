@@ -29,7 +29,9 @@ function ProctedCard({ product }: { product: IProduct }) {
           <div>
             <p className="text-xs text-[#858b86]">আজকের দাম</p>
             <p className="text-[#202923]">
-              <span className="text-base text-[18px] font-bold ">{`${product.today} `}</span>
+              <span className="text-base text-[18px] font-bold ">
+                {`${product.today.toLocaleString("bn-BD")} `}
+              </span>
 
               <span className="font-normal text-[13px]">টাকা</span>
             </p>

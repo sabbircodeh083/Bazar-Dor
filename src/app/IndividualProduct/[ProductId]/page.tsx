@@ -36,7 +36,7 @@ async function ProductDescription({
               </h2>
 
               <p className="text-sm text-gray-500">
-                {`প্রতি ${unitNames[product.unit]} · ${product.categoryNameBn}`}
+                {`প্রতি ${unitNames[product.unit]} · ${product.nameBn}`}
               </p>
 
               <p className="mt-2 text-xs text-gray-700 sm:text-sm">
@@ -50,7 +50,7 @@ async function ProductDescription({
                 </span>
                 {Math.abs(product.today - product.yesterday) === 0
                   ? ""
-                  : ` · ${Math.abs(product.today - product.yesterday)} টাকা`}
+                  : ` · ${Math.abs(product.today - product.yesterday).toLocaleString("bn-BD")} টাকা`}
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ async function ProductDescription({
             <span className="text-xs text-gray-500">আজকের দাম</span>
 
             <strong className="text-3xl font-bold text-gray-900">
-              {product.today}
+              {product.today.toLocaleString("bn-BD")}
             </strong>
 
             <span className="text-sm text-gray-500">

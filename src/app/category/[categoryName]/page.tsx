@@ -23,10 +23,10 @@ async function CategoryProducts({
       <div className="container mx-auto my-3 md:my-10">
         {/* firstBox */}
         <div className="flex justify-center md:justify-start items-center gap-3 rounded-2xl border border-gray-200 bg-white/70 px-5 py-5 mb-2 md:mb-4">
-          <span className="text-3xl">{data[0]?.image}</span>
+          <span className="text-3xl">{data[0]?.categoryIcon}</span>
           <div>
             <h2 className="text-xl font-bold text-gray-800">
-              {data[0]?.nameBn}
+              {data[0]?.categoryNameBn}
             </h2>
             <p className="text-sm text-gray-500">
               {`${data.length.toLocaleString("bn-BD")}টি পণ্যের আজকের দাম ও পরিবর্তন`}

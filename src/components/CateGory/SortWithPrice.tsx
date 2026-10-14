@@ -33,7 +33,7 @@ function SortWithPrice({ products }: { products: IProduct[] }) {
 
       {/* ponnoTitle */}
       <div>
-        <p className="text-sm text-center md:text-start text-gray-500">
+        <p className="text-sm mb-1 md:mb-2 text-center md:text-start text-black">
           {`মোট ${products.length.toLocaleString("bn-BD")}টি পণ্য দেখানো হচ্ছে`}
         </p>
       </div>
